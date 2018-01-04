@@ -16,6 +16,192 @@ body:after {
 	height: 30vh;
 	z-index: 20;
 	bottom: 0;
+	left: 0;
+}
+
+.shadow {
+	width: 100vw;
+	height: 100vh;
+	background: black;
+	position: absolute;
+	z-index: 30;
+	opacity: 0.7;
+	cursor: default;
+}
+
+.wrapper {
+	width: 600px;
+	height: 250px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	z-index: 35;
+	cursor: default;
+	background: royalblue;
+	border-radius: 20px;
+}
+
+ul {
+  	list-style-type: none;
+}
+
+ul li {
+  	margin-top: 25px;
+}
+
+a {
+	text-decoration: none;
+	color: lightblue;
+	text-transform: uppercase;
+	font-family: cursive;
+	font-weight: bolder;
+	font-size: 2em;
+	transition: .5s;
+}
+
+a:hover {
+	color: tomato;
+}
+
+#about,
+#help {
+	width: 400px;
+	height: 249px;
+	text-transform: uppercase;
+	font-family: cursive;
+	color: orange;
+	border-radius: 20px;
+	text-align: center;
+	margin-left: 200px;
+	margin-top: -222px;
+}
+
+#start:target,
+#start:target+.wrapper {
+  	opacity: 0;
+  	transition: .5s;
+  	position: absolute;
+  	z-index: -5;
+}
+
+#start:not(:target)~div:not(.wrapper) {
+	display: none;
+}
+
+#start:target~div {
+	display: block;
+}
+
+#about:target,
+#help:target {
+	display: block;
+	background: royalblue;
+	box-shadow: 2px -1px 29px -2px rgba(0, 0, 0, 0.75);
+}
+
+#about:not(:target),
+#help:not(:target) {
+  	display: none;
+}
+
+.duckShow1,
+.duckShow2,
+.duckShow3 {
+	width: 75px;
+	height: 75px;
+	background: url('img/sprite.png') no-repeat;
+	font-size: 1.3em;
+	font-weight: bolder;
+}
+
+.duckShow1 {
+	color: pink;
+	animation: blueDuckFlyPosition 220ms infinite step-end alternate;
+}
+
+.duckShow2 {
+	color: tomato;
+	animation: redDuckFlyPosition 220ms infinite step-end alternate;
+}
+
+.duckShow3 {
+	color: black;
+	animation: blackDuckFlyPosition 220ms infinite step-end alternate;
+}
+
+.duckShow1:after {
+	content: "+10";
+	position: absolute;
+	top: 25px;
+	right: 280px;
+}
+
+.duckShow1:before {
+	content: "this duck will get you \0a a few points \0a shoot it";
+	white-space: pre;
+	position: absolute;
+	font-size: .7em;
+	top: 27px;
+	right: 35px;
+}
+
+.duckShow2:after {
+	content: "+50";
+	position: absolute;
+	top: 100px;
+	right: 280px;
+}
+
+.duckShow2:before {
+	content: "this duck will get you \0a a lot of points \0a shoot it too";
+	white-space: pre;
+	position: absolute;
+	font-size: .7em;
+	top: 102px;
+	right: 35px;
+}
+
+.duckShow3:after {
+	content: "-5";
+	position: absolute;
+	top: 180px;
+	right: 280px;
+}
+
+.duckShow3:before {
+	content: "just... just do not shoot \0a this duck";
+	white-space: pre;
+	position: absolute;
+	font-size: .7em;
+	top: 182px;
+	right: 16px;
+}
+
+#about > span {
+	font-size: 1.2em;
+	position: absolute;
+	width: 400px;
+	left: 200px;
+	top: 23px;
+}
+
+#about > span > span:nth-of-type(1) {
+	text-transform: none;
+	font-size: 1em;
+	position: absolute;
+	width: 400px;
+	top: 60px;
+	left: 0px;
+}
+
+#about > span > span:nth-of-type(2) {
+	position: absolute;
+	width: 400px;
+	top: 160px;
+	left: 0px;
 }
 
 .cloud1,
@@ -71,11 +257,11 @@ body:after {
 	background: url('img/sprite.png') no-repeat;
 	width: 120px; 
 	height: 100px;
-	animation: rightDogMove 3.4s linear forwards, dogMove 5s step-start 1 forwards;
+	animation: rightDogMove 3.4s linear forwards, dogMove 5s step-start forwards;
 }
 
 @keyframes rightDogMove {
-  from { left: 0px; }
+  from { left: -500px; }
 	to { left: 450px; }
 }
 
@@ -214,8 +400,8 @@ body:after {
 
 @keyframes blueDuckFlyPosition {
     0% { background-position: 0px -220px }
-    33% { background-position: -85px -220px }
-    66% { background-position: -170px -220px }
+    33% { background-position: -80px -220px }
+    66% { background-position: -160px -220px }
     100% { background-position: 0px 0px }
 }
 @keyframes redDuckFlyPosition {
@@ -397,47 +583,47 @@ input {
 }
 
 .duckAnimation1 {
-    animation: duck1LeftFly 12s linear 6s infinite;
+    animation: duck1LeftFly 16s linear 6s infinite;
 }
 
 .duckAnimation2 {
-    animation: duck2LeftFly 16s linear 7s infinite;
+    animation: duck2LeftFly 17s linear 7s infinite;
 }
 
 .duckAnimation3 {
-    animation: duck3LeftFly 14s linear 8s infinite;
+    animation: duck3LeftFly 18s linear 8s infinite;
 }
 
 .duckAnimation4 {
-    animation: duck4LeftFly 9s linear 9s infinite;
+    animation: duck4LeftFly 19s linear 9s infinite;
 }
 
 .duckAnimation5 {
-    animation: duck5LeftFly 11s linear 10s infinite;
+    animation: duck5LeftFly 20s linear 10s infinite;
 }
 
 .duckAnimation6 {
-    animation: duck6RightFly 11s linear 10s infinite;
+    animation: duck6RightFly 21s linear 10s infinite;
 }
 
 .duckAnimation7 {
-    animation: duck7RightFly 12s linear 15s infinite;
+    animation: duck7RightFly 22s linear 15s infinite;
 }
 
 .duckAnimation8 {
-    animation: duck8RightFly 13s linear 8s infinite;
+    animation: duck8RightFly 23s linear 8s infinite;
 }
 
 .duckAnimation9 {
-    animation: duck9RightFly 14s linear 11s infinite;
+    animation: duck9RightFly 24s linear 11s infinite;
 }
 
 .duckAnimation10 {
-    animation: duck10RightFly 15s linear 7s infinite;
+    animation: duck10RightFly 25s linear 7s infinite;
 }
 
 .duckAnimation11 {
-	animation: duck11LeftFly 10s linear 6.5s infinite;
+	animation: duck11LeftFly 26s linear 6.5s infinite;
 }
 
 .duckAnimation12 {
