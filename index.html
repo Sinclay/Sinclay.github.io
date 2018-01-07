@@ -3,17 +3,20 @@
 
 <head>
     <link rel="stylesheet" href="css/index.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, height=device-height, target-densitydpi=device-dpi, initial-scale=1">
     <meta charset="utf-8">
+    <script type="text/javascript" src="js/index.js"></script>
     <title>Duck Hunter</title>
 </head>
 
 <body>
     <div class="shadow" id="start"></div>
     <div class="wrapper">
+        <span>Duck Hunter</span>
         <ul>
-            <li><a href="#start">start</a></li>
-            <li><a href="#about">about</a></li>
-            <li><a href="#help">help</a></li>
+            <li><a onClick="soundClickButton()" href="#start">start</a></li>
+            <li><a onClick="soundClickButton()" href="#about">about</a></li>
+            <li><a onClick="soundClickButton()" href="#help">help</a></li>
         </ul>
         <div id="about"><span><strong>shoot all the ducks in this area!!!</strong><br><span>Okay, I'm joking, you need only red and blue ducks. If you shoot them all, you'll get a lot of points, and nothing more.</span><br><span>for more information press &#34;help&#34;</span></span>
         </div>
@@ -23,72 +26,149 @@
             <div class="duckShow3"></div>
         </div>
     </div>
-    <div class="dog"></div>
-    <div class="cloud1"></div>
-    <div class="cloud2"></div>
-    <div class="cloud3"></div>
-    <div class="cloud4"></div>
-    <input type="checkbox" id="duck1">
-    <div class="duckAnimation1">
-        <label for="duck1" class="duck1"></label>
+    <div onClick="soundClickBody()">
+        <div class="dog"></div>
+        <div class="cloud1"></div>
+        <div class="cloud2"></div>
+        <div class="cloud3"></div>
+        <div class="cloud4"></div>
+        <input type="checkbox" id="duck1">
+        <div onClick="soundClickDuck()" class="duckAnimation1">
+            <div class="duck1"></div>
+            <label for="duck1"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="winner"></div>
+        </div>
+        <input type="checkbox" id="duck2">
+        <div onClick="soundClickDuck()" class="duckAnimation2">
+            <div class="duck2"></div>
+            <label for="duck2"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="winner"></div>
+        </div>
+        <input type="checkbox" id="duck3">
+        <div onClick="soundClickDuck()" class="duckAnimation3">
+            <div class="duck3"></div>
+            <label for="duck3"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="winner"></div>
+        </div>
+        <input type="checkbox" id="duck4">
+        <div onClick="soundClickDuck()" class="duckAnimation4">
+            <div class="duck4"></div>
+            <label for="duck4"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="winner"></div>
+        </div>
+        <input type="checkbox" id="duck5">
+        <div onClick="soundClickDuck()" class="duckAnimation5">
+            <div class="duck5"></div>
+            <label for="duck5"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="winner"></div>
+        </div>
+        <input type="checkbox" id="duck6">
+        <div onClick="soundClickDuck()" class="duckAnimation6">
+            <div class="duck6"></div>
+            <label for="duck6"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="winner"></div>
+        </div>
+        <input type="checkbox" id="duck7">
+        <div onClick="soundClickDuck()" class="duckAnimation7">
+            <div class="duck7"></div>
+            <label for="duck7"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="winner"></div>
+        </div>
+        <input type="checkbox" id="duck8">
+        <div onClick="soundClickDuck()" class="duckAnimation8">
+            <div class="duck8"></div>
+            <label for="duck8"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="winner"></div>
+        </div>
+        <input type="checkbox" id="duck9">
+        <div onClick="soundClickDuck()" class="duckAnimation9">
+            <div class="duck9"></div>
+            <label for="duck9"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="winner"></div>
+        </div>
+        <input type="checkbox" id="duck10">
+        <div onClick="soundClickDuck()" class="duckAnimation10">
+            <div class="duck10"></div>
+            <label for="duck10"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="winner"></div>
+        </div>
+        <input type="checkbox" id="duck11">
+        <div onClick="soundClickDuck()" class="duckAnimation11">
+            <div class="duck11"></div>
+            <label for="duck11"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="lost"></div>
+        </div>
+        <input type="checkbox" id="duck12">
+        <div onClick="soundClickDuck()" class="duckAnimation12">
+            <div class="duck12"></div>
+            <label for="duck12"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="lost"></div>
+        </div>
+        <input type="checkbox" id="duck13">
+        <div onClick="soundClickDuck()" class="duckAnimation13">
+            <div class="duck13"></div>
+            <label for="duck13"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="lost"></div>
+        </div>
+        <input type="checkbox" id="duck14">
+        <div onClick="soundClickDuck()" class="duckAnimation14">
+            <div class="duck14"></div>
+            <label for="duck14"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="lost"></div>
+        </div>
+        <input type="checkbox" id="duck15">
+        <div onClick="soundClickDuck()" class="duckAnimation15">
+            <div class="duck15"></div>
+            <label for="duck15"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="lost"></div>
+        </div>
+        <div class="score">Score&#58;&nbsp;</div>
     </div>
-    <input type="checkbox" id="duck2">
-    <div class="duckAnimation2">
-        <label for="duck2" class="duck2"></label>
-    </div>
-    <input type="checkbox" id="duck3">
-    <div class="duckAnimation3">
-        <label for="duck3" class="duck3"></label>
-    </div>
-    <input type="checkbox" id="duck4">
-    <div class="duckAnimation4">
-        <label for="duck4" class="duck4"></label>
-    </div>
-    <input type="checkbox" id="duck5">
-    <div class="duckAnimation5">
-        <label for="duck5" class="duck5"></label>
-    </div>
-    <input type="checkbox" id="duck6">
-    <div class="duckAnimation6">
-        <label for="duck6" class="duck6"></label>
-    </div>
-    <input type="checkbox" id="duck7">
-    <div class="duckAnimation7">
-        <label for="duck7" class="duck7"></label>
-    </div>
-    <input type="checkbox" id="duck8">
-    <div class="duckAnimation8">
-        <label for="duck8" class="duck8"></label>
-    </div>
-    <input type="checkbox" id="duck9">
-    <div class="duckAnimation9">
-        <label for="duck9" class="duck9"></label>
-    </div>
-    <input type="checkbox" id="duck10">
-    <div class="duckAnimation10">
-        <label for="duck10" class="duck10"></label>
-    </div>
-    <input type="checkbox" id="duck11">
-    <div class="duckAnimation11">
-        <label for="duck11" class="duck11"></label>
-    </div>
-    <input type="checkbox" id="duck12">
-    <div class="duckAnimation12">
-        <label for="duck12" class="duck12"></label>
-    </div>
-    <input type="checkbox" id="duck13">
-    <div class="duckAnimation13">
-        <label for="duck13" class="duck13"></label>
-    </div>
-    <input type="checkbox" id="duck14">
-    <div class="duckAnimation14">
-        <label for="duck14" class="duck14"></label>
-    </div>
-    <input type="checkbox" id="duck15">
-    <div class="duckAnimation15">
-        <label for="duck15" class="duck15"></label>
-    </div>
-    <div class="score">Score&#58;&nbsp;</div>
 </body>
 
 </html>

@@ -2,9 +2,12 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    background: linear-gradient(to bottom, blue, lightblue);
+    background: -webkit-gradient(linear, left top, left bottom, from(blue), to(lightblue)) no-repeat;
+    background: -webkit-linear-gradient(top, blue, lightblue) no-repeat;
+    background: -o-linear-gradient(top, blue, lightblue) no-repeat;
+    background: linear-gradient(to bottom, blue, lightblue) no-repeat;
     cursor: url('img/smallaim.png'), auto;
 }
 
@@ -12,8 +15,8 @@ body:after {
 	content: "";
 	background: url('img/bg.png') repeat-x bottom left;
 	position: absolute;
-	width: 100vw;
-	height: 30vh;
+	width: 100%;
+	height: 185px;
 	z-index: 20;
 	bottom: 0;
 	left: 0;
@@ -44,6 +47,21 @@ body:after {
 	border-radius: 20px;
 }
 
+.wrapper > span {
+	position: absolute;
+	right: 10px;
+	top: 70px;
+	opacity: 0.2;
+	font-size: 4em;
+	font-family: cursive;
+	font-weight: bolder;
+	color: lightblue;
+	text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+	-webkit-transform: rotate(10deg);
+	    -ms-transform: rotate(10deg);
+	        transform: rotate(10deg);
+}
+
 ul {
   	list-style-type: none;
 }
@@ -59,11 +77,32 @@ a {
 	font-family: cursive;
 	font-weight: bolder;
 	font-size: 2em;
+	-webkit-transition: .5s;
+	-o-transition: .5s;
 	transition: .5s;
 }
 
 a:hover {
 	color: tomato;
+	text-shadow: 0px 0px 30px rgba(51, 230, 225, 1);
+}
+
+#start:target,
+#start:target + .wrapper {
+  	-webkit-transition: .5s;
+  	-o-transition: .5s;
+  	transition: .5s;
+  	position: absolute;
+  	z-index: -5;
+  	opacity: 0;
+}
+
+#start:not(:target) ~ div:not(.wrapper) {
+	display: none;
+}
+
+#start:target ~ div {
+	display: block;
 }
 
 #about,
@@ -79,27 +118,11 @@ a:hover {
 	margin-top: -222px;
 }
 
-#start:target,
-#start:target+.wrapper {
-  	opacity: 0;
-  	transition: .5s;
-  	position: absolute;
-  	z-index: -5;
-}
-
-#start:not(:target)~div:not(.wrapper) {
-	display: none;
-}
-
-#start:target~div {
-	display: block;
-}
-
 #about:target,
 #help:target {
 	display: block;
-	background: royalblue;
-	box-shadow: 2px -1px 29px -2px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 2px -1px 29px -2px rgba(0, 0, 0, 0.75);
+	        box-shadow: 2px -1px 29px -2px rgba(0, 0, 0, 0.75);
 }
 
 #about:not(:target),
@@ -119,17 +142,20 @@ a:hover {
 
 .duckShow1 {
 	color: pink;
-	animation: blueDuckFlyPosition 220ms infinite step-end alternate;
+	-webkit-animation: blueDuckFlyPosition 220ms infinite step-end alternate;
+	        animation: blueDuckFlyPosition 220ms infinite step-end alternate;
 }
 
 .duckShow2 {
 	color: tomato;
-	animation: redDuckFlyPosition 220ms infinite step-end alternate;
+	-webkit-animation: redDuckFlyPosition 220ms infinite step-end alternate;
+	        animation: redDuckFlyPosition 220ms infinite step-end alternate;
 }
 
 .duckShow3 {
 	color: black;
-	animation: blackDuckFlyPosition 220ms infinite step-end alternate;
+	-webkit-animation: blackDuckFlyPosition 220ms infinite step-end alternate;
+	        animation: blackDuckFlyPosition 220ms infinite step-end alternate;
 }
 
 .duckShow1:after {
@@ -209,9 +235,8 @@ a:hover {
 .cloud3,
 .cloud4 {
 	position: absolute;
-	z-index: 20;
 	width: 250px;
-	height: 250px;
+	height: 136px;
 	background: url('img/cloud.png') no-repeat;
 	opacity: 0.5;
 }
@@ -219,30 +244,44 @@ a:hover {
 .cloud1 {
 	top: 7vh;
 	left: -300px;
-	animation: cloudLeftMove 30s linear 6s infinite;
+	-webkit-animation: cloudLeftMove 30s linear 6s infinite;
+	        animation: cloudLeftMove 30s linear 6s infinite;
 }
 
 .cloud2 {
 	top: 14vh;
 	right: -300px;
-	animation: cloudRightMove 40s linear 7s infinite;
+	-webkit-animation: cloudRightMove 40s linear 7s infinite;
+	        animation: cloudRightMove 40s linear 7s infinite;
 }
 
 .cloud3 {
 	top: 17vh;
 	left: -300px;
-	animation: cloudLeftMove 45s linear 8s infinite;
+	-webkit-animation: cloudLeftMove 45s linear 8s infinite;
+	        animation: cloudLeftMove 45s linear 8s infinite;
 }
 
 .cloud4 {
 	top: 23vh;
 	right: -300px;
-	animation: cloudRightMove 50s linear 9s infinite;
+	-webkit-animation: cloudRightMove 50s linear 9s infinite;
+	        animation: cloudRightMove 50s linear 9s infinite;
+}
+
+@-webkit-keyframes cloudLeftMove {
+	from { left: -300px; }
+	to { left: 2000px; }
 }
 
 @keyframes cloudLeftMove {
 	from { left: -300px; }
 	to { left: 2000px; }
+}
+
+@-webkit-keyframes cloudRightMove {
+	from { right: -300px; }
+	to { right: 2000px; }
 }
 
 @keyframes cloudRightMove {
@@ -257,12 +296,53 @@ a:hover {
 	background: url('img/sprite.png') no-repeat;
 	width: 120px; 
 	height: 100px;
-	animation: rightDogMove 3.4s linear forwards, dogMove 5s step-start forwards;
+	-webkit-animation: rightDogMove 3.4s linear forwards, dogMove 5s step-start forwards;
+	        animation: rightDogMove 3.4s linear forwards, dogMove 5s step-start forwards;
+}
+
+@-webkit-keyframes rightDogMove {
+  	from { left: -500px; }
+	to { left: 25vw; }
 }
 
 @keyframes rightDogMove {
-  from { left: -500px; }
-	to { left: 450px; }
+  	from { left: -500px; }
+	to { left: 25vw; }
+}
+
+@-webkit-keyframes dogMove {
+	0% { background-position: 0px 0px; }
+	3% { background-position: -120px 0px; }
+	6% { background-position: -240px 0px; }
+	9% { background-position: -360px 0px; }	
+	12% { background-position: 0px 0px; }
+	15% { background-position: -120px 0px; }
+	18% { background-position: -240px 0px; }
+	21% { background-position: -360px 0px; }	
+	24% { background-position: 0px 0px; }
+	27% { background-position: -120px 0px; }
+	30% { background-position: -240px 0px; }
+	33% { background-position: -360px 0px; }	
+	36% { background-position: 0px 0px; }
+	39% { background-position: -120px 0px; }
+	42% { background-position: -240px 0px; }
+	45% { background-position: -360px 0px; }	
+	48% { background-position: 0px 0px; }
+	51% { background-position: -120px 0px; }
+	54% { background-position: -240px 0px; }
+	57% { background-position: -360px 0px; }	
+	60% { background-position: 0px 0px; }
+	63% { background-position: -120px 0px; }
+	66% { background-position: -240px 0px; }
+	69% { background-position: -360px 0px; }
+	72% { background-position: -480px 0px; }
+	75% { background-position: -360px 0px; }
+	78% { background-position: -480px 0px; }
+	81% { background-position: -360px 0px; }
+	90% { background-position: -0px -110px; }
+	93% { background-position: -120px -110px; }
+	96% { background-position: -240px -110px; }
+	100% { background-position: 9999px 9999px; }
 }
 
 @keyframes dogMove {
@@ -300,9 +380,20 @@ a:hover {
 	100% { background-position: 9999px 9999px; }
 }
 
+@-webkit-keyframes duck1LeftFly {
+    from { left: -100px; top: 0px; }
+    to { left: 2500px; top: 550px; }
+}
+
 @keyframes duck1LeftFly {
     from { left: -100px; top: 0px; }
     to { left: 2500px; top: 550px; }
+}
+
+@-webkit-keyframes duck2LeftFly {
+    0% { left: -100px; top: 600px; }
+	50% { left: 600px; top: 0px; }
+	100% { left: 2500px; top: 600px; }
 }
 
 @keyframes duck2LeftFly {
@@ -311,16 +402,35 @@ a:hover {
 	100% { left: 2500px; top: 600px; }
 }
 
+@-webkit-keyframes duck3LeftFly {
+    0% { left: -100px; top: 100px; }
+	50% { left: 600px; top: 300px; }
+	100% { left: 2500px; top: 0px; }
+}
+
 @keyframes duck3LeftFly {
     0% { left: -100px; top: 100px; }
 	50% { left: 600px; top: 300px; }
 	100% { left: 2500px; top: 0px; }
 }
 
+@-webkit-keyframes duck4LeftFly {
+    0% { left: -100px; top: 600px; }
+	50% { left: 600px; top: 0px; }
+	100% { left: 2500px; top: 600px; }
+}
+
 @keyframes duck4LeftFly {
     0% { left: -100px; top: 600px; }
 	50% { left: 600px; top: 0px; }
 	100% { left: 2500px; top: 600px; }
+}
+
+@-webkit-keyframes duck5LeftFly {
+    0% { left: -100px; top: 300px; }
+	30% { left: 150px; top: 25px; }
+	60% { left: 450px; top: 580px; }	
+	100% { left: 2500px; top: 0px; }
 }
 
 @keyframes duck5LeftFly {
@@ -330,15 +440,36 @@ a:hover {
 	100% { left: 2500px; top: 0px; }
 }
 
+@-webkit-keyframes duck6RightFly {
+    from { right: -100px; top: 0px; }
+    to { right: 2500px; top: 535px; }
+}
+
 @keyframes duck6RightFly {
     from { right: -100px; top: 0px; }
     to { right: 2500px; top: 535px; }
+}
+
+@-webkit-keyframes duck7RightFly {
+    0% { right: -100px; top: 100px; }
+	30% { right: 750px; top: 500px; }
+	60% { right: 600px; top: 600px; }	
+	100% { right: 2500px; top: 0px; }
 }
 
 @keyframes duck7RightFly {
     0% { right: -100px; top: 100px; }
 	30% { right: 750px; top: 500px; }
 	60% { right: 600px; top: 600px; }	
+	100% { right: 2500px; top: 0px; }
+}
+
+@-webkit-keyframes duck8RightFly {
+    0% { right: -100px; top: 300px; }
+	20% { right: 330px; top: 40px; }
+	40% { right: 420px; top: 620px; }
+	60% { right: 890px; top: 210px; }
+	80% { right: 1050px; top: 500px; }	
 	100% { right: 2500px; top: 0px; }
 }
 
@@ -351,10 +482,23 @@ a:hover {
 	100% { right: 2500px; top: 0px; }
 }
 
+@-webkit-keyframes duck9RightFly {
+    0% { right: -100px; top: 600px; }
+	50% { right: 600px; top: 0px; }
+	100% { right: 2500px; top: 600px; }
+}
+
 @keyframes duck9RightFly {
     0% { right: -100px; top: 600px; }
 	50% { right: 600px; top: 0px; }
 	100% { right: 2500px; top: 600px; }
+}
+
+@-webkit-keyframes duck10RightFly {
+    0% { right: -100px; top: 300px; }
+	30% { right: 100px; top: 10px; }
+	60% { right: 600px; top: 600px; }	
+	100% { right: 2500px; top: 0px; }
 }
 
 @keyframes duck10RightFly {
@@ -364,10 +508,22 @@ a:hover {
 	100% { right: 2500px; top: 0px; }
 }
 
+@-webkit-keyframes duck11LeftFly {
+	0% { left: -100px; top: 550px; }
+	50% { left: 550px; top: 0px; }
+	100% { left: 2500px; top: 700px; }
+}
+
 @keyframes duck11LeftFly {
 	0% { left: -100px; top: 550px; }
 	50% { left: 550px; top: 0px; }
 	100% { left: 2500px; top: 700px; }
+}
+
+@-webkit-keyframes duck12LeftFly {
+	0% { left: -100px; top: 120px; }
+	50% { left: 440px; top: 230px; }
+	100% { left: 2500px; top: 0px; }
 }
 
 @keyframes duck12LeftFly {
@@ -376,10 +532,25 @@ a:hover {
 	100% { left: 2500px; top: 0px; }
 }
 
+@-webkit-keyframes duck13LeftFly {
+	0% { left: -100px; top: 620px; }
+	50% { left: 670px; top: 0px; }
+	100% { left: 2500px; top: 600px; }
+}
+
 @keyframes duck13LeftFly {
 	0% { left: -100px; top: 620px; }
 	50% { left: 670px; top: 0px; }
 	100% { left: 2500px; top: 600px; }
+}
+
+@-webkit-keyframes duck14RightFly {
+	0% { right: -100px; top: 270px; }
+	20% { right: 230px; top: 40px; }
+	40% { right: 330px; top: 480px; }
+	60% { right: 660px; top: 300px; }
+	80% { right: 840px; top: 480px; }	
+	100% { right: 2500px; top: 0px; }
 }
 
 @keyframes duck14RightFly {
@@ -391,11 +562,25 @@ a:hover {
 	100% { right: 2500px; top: 0px; }
 }
 
+@-webkit-keyframes duck15RightFly {
+	0% { right: -100px; top: 90px; }
+	30% { right: 690px; top: 380px; }
+	60% { right: 510px; top: 400px; }
+	100% { right: 2500px; top: 0px; }
+}
+
 @keyframes duck15RightFly {
 	0% { right: -100px; top: 90px; }
 	30% { right: 690px; top: 380px; }
-	60% { right: 510px; top: 400px; }	
+	60% { right: 510px; top: 400px; }
 	100% { right: 2500px; top: 0px; }
+}
+
+@-webkit-keyframes blueDuckFlyPosition {
+    0% { background-position: 0px -220px }
+    33% { background-position: -80px -220px }
+    66% { background-position: -160px -220px }
+    100% { background-position: 0px 0px }
 }
 
 @keyframes blueDuckFlyPosition {
@@ -404,10 +589,25 @@ a:hover {
     66% { background-position: -160px -220px }
     100% { background-position: 0px 0px }
 }
+
+@-webkit-keyframes redDuckFlyPosition {
+	0% { background-position: -520px -220px }
+    33% { background-position: -600px -220px }
+    66% { background-position: -680px -220px }
+    100% { background-position: 0px 0px }
+}
+
 @keyframes redDuckFlyPosition {
 	0% { background-position: -520px -220px }
     33% { background-position: -600px -220px }
     66% { background-position: -680px -220px }
+    100% { background-position: 0px 0px }
+}
+
+@-webkit-keyframes blackDuckFlyPosition {
+    0% { background-position: -260px -220px }
+    33% { background-position: -340px -220px }
+    66% { background-position: -420px -220px }
     100% { background-position: 0px 0px }
 }
 
@@ -416,6 +616,11 @@ a:hover {
     33% { background-position: -340px -220px }
     66% { background-position: -420px -220px }
     100% { background-position: 0px 0px }
+}
+
+@-webkit-keyframes duckDie {
+    from { top: 0px; }
+    to { top: 5555px; }
 }
 
 @keyframes duckDie {
@@ -427,12 +632,8 @@ input {
 	display: none;
 }
 
-#duck1 ~ .duckAnimation1 > .duck1,
-#duck2 ~ .duckAnimation2 > .duck2,
-#duck3 ~ .duckAnimation3 > .duck3,
-#duck4 ~ .duckAnimation4 > .duck4,
-#duck5 ~ .duckAnimation5 > .duck5 {
-    position: relative;
+input ~ div > div + label {
+    position: absolute;
     left: -100px;
     top: 0;
     height: 75px;
@@ -440,123 +641,115 @@ input {
     display: block;
     z-index: 15;
     background: url('img/sprite.png') no-repeat;
-	background-position: 0px -220px;
 	cursor: url('img/smallaim.png'), auto;
-	animation: blueDuckFlyPosition 220ms infinite step-end alternate;
 }
 
-#duck6 ~ .duckAnimation6 > .duck6,
-#duck7 ~ .duckAnimation7 > .duck7,
-#duck8 ~ .duckAnimation8 > .duck8,
-#duck9 ~ .duckAnimation9 > .duck9,
-#duck10 ~ .duckAnimation10 > .duck10 {
-	position: relative;
-    left: -100px;
-    top: 0;
-    height: 75px;
-	width: 75px;
-    display: block;
-    z-index: 15;
-    background: url('img/sprite.png') no-repeat;
-	background-position: -520px -220px;
-	cursor: url('img/smallaim.png'), auto;
-	animation: redDuckFlyPosition 220ms infinite step-end alternate;
+#duck1 ~ .duckAnimation1 > .duck1 + label,
+#duck2 ~ .duckAnimation2 > .duck2 + label,
+#duck3 ~ .duckAnimation3 > .duck3 + label,
+#duck4 ~ .duckAnimation4 > .duck4 + label,
+#duck5 ~ .duckAnimation5 > .duck5 + label {
+	-webkit-animation: blueDuckFlyPosition 220ms infinite step-end alternate;
+	        animation: blueDuckFlyPosition 220ms infinite step-end alternate;
 }
 
-#duck11 ~ .duckAnimation11 > .duck11,
-#duck12 ~ .duckAnimation12 > .duck12,
-#duck13 ~ .duckAnimation13 > .duck13,
-#duck14 ~ .duckAnimation14 > .duck14,
-#duck15 ~ .duckAnimation15 > .duck15 {
-	position: relative;
-    left: -100px;
-    top: 0;
-    height: 75px;
-	width: 75px;
-    display: block;
-    z-index: 15;
-    background: url('img/sprite.png') no-repeat;
-	background-position: -260px -220px;
-	cursor: url('img/smallaim.png'), auto;
-	animation: blackDuckFlyPosition 220ms infinite step-end alternate;
+#duck6 ~ .duckAnimation6 > .duck6 + label,
+#duck7 ~ .duckAnimation7 > .duck7 + label,
+#duck8 ~ .duckAnimation8 > .duck8 + label,
+#duck9 ~ .duckAnimation9 > .duck9 + label,
+#duck10 ~ .duckAnimation10 > .duck10 + label {
+	-webkit-animation: redDuckFlyPosition 220ms infinite step-end alternate;
+	        animation: redDuckFlyPosition 220ms infinite step-end alternate;
 }
 
-#duck1 ~ .duckAnimation1 > .duck1:after,
-#duck2 ~ .duckAnimation2 > .duck2:after,
-#duck3 ~ .duckAnimation3 > .duck3:after,
-#duck4 ~ .duckAnimation4 > .duck4:after,
-#duck5 ~ .duckAnimation5 > .duck5:after {
-  	content: "+10";
-  	position: fixed;
+#duck11 ~ .duckAnimation11 > .duck11 + label,
+#duck12 ~ .duckAnimation12 > .duck12 + label,
+#duck13 ~ .duckAnimation13 > .duck13 + label,
+#duck14 ~ .duckAnimation14 > .duck14 + label,
+#duck15 ~ .duckAnimation15 > .duck15 + label {
+	-webkit-animation: blackDuckFlyPosition 220ms infinite step-end alternate;
+	        animation: blackDuckFlyPosition 220ms infinite step-end alternate;
+}
+
+input ~ div > div + label:after {
+    position: fixed;
   	font-size: 1.3em;
   	font-weight: bolder;
+  	opacity: 0;
+  	-webkit-transition: -webkit-transform 1s;
+  	transition: -webkit-transform 1s;
+  	-o-transition: transform 1s;
+  	transition: transform 1s;
+  	transition: transform 1s, -webkit-transform 1s;
+  	-webkit-transform: rotate(180deg);
+  	    -ms-transform: rotate(180deg);
+  	        transform: rotate(180deg);
+}
+
+#duck1 ~ .duckAnimation1 > .duck1 + label:after,
+#duck2 ~ .duckAnimation2 > .duck2 + label:after,
+#duck3 ~ .duckAnimation3 > .duck3 + label:after,
+#duck4 ~ .duckAnimation4 > .duck4 + label:after,
+#duck5 ~ .duckAnimation5 > .duck5 + label:after {
+  	content: "+10";
   	color: pink;
-  	opacity: 0;
-  	transition: transform 1s;
-  	transform: rotate(180deg);
 }
 
-#duck6 ~ .duckAnimation6 > .duck6:after,
-#duck7 ~ .duckAnimation7 > .duck7:after,
-#duck8 ~ .duckAnimation8 > .duck8:after,
-#duck9 ~ .duckAnimation9 > .duck9:after,
-#duck10 ~ .duckAnimation10 > .duck10:after {
+#duck6 ~ .duckAnimation6 > .duck6 + label:after,
+#duck7 ~ .duckAnimation7 > .duck7 + label:after,
+#duck8 ~ .duckAnimation8 > .duck8 + label:after,
+#duck9 ~ .duckAnimation9 > .duck9 + label:after,
+#duck10 ~ .duckAnimation10 > .duck10 + label:after {
 	content: "+50";
-  	position: fixed;
-  	font-size: 1.3em;
-  	font-weight: bolder;
   	color: tomato;
-  	opacity: 0;
-  	transition: transform 1s;
-  	transform: rotate(180deg);
 }
 
-#duck11 ~ .duckAnimation11 > .duck11:after,
-#duck12 ~ .duckAnimation12 > .duck12:after,
-#duck13 ~ .duckAnimation13 > .duck13:after,
-#duck14 ~ .duckAnimation14 > .duck14:after,
-#duck15 ~ .duckAnimation15 > .duck15:after {
+#duck11 ~ .duckAnimation11 > .duck11 + label:after,
+#duck12 ~ .duckAnimation12 > .duck12 + label:after,
+#duck13 ~ .duckAnimation13 > .duck13 + label:after,
+#duck14 ~ .duckAnimation14 > .duck14 + label:after,
+#duck15 ~ .duckAnimation15 > .duck15 + label:after {
 	content: "-10";
-  	position: fixed;
-  	font-size: 1.3em;
-  	font-weight: bolder;
   	color: black;
-  	opacity: 0;
-  	transition: transform 1s;
-  	transform: rotate(180deg);
 }
 
-#duck1:checked ~ .duckAnimation1 > .duck1:after,
-#duck2:checked ~ .duckAnimation2 > .duck2:after,
-#duck3:checked ~ .duckAnimation3 > .duck3:after,
-#duck4:checked ~ .duckAnimation4 > .duck4:after,
-#duck5:checked ~ .duckAnimation5 > .duck5:after {
+#duck1:checked ~ .duckAnimation1 > .duck1 + label:after,
+#duck2:checked ~ .duckAnimation2 > .duck2 + label:after,
+#duck3:checked ~ .duckAnimation3 > .duck3 + label:after,
+#duck4:checked ~ .duckAnimation4 > .duck4 + label:after,
+#duck5:checked ~ .duckAnimation5 > .duck5 + label:after {
   	content: "+10";
   	position: fixed;
   	opacity: 1;
-  	transform: translateY(-400px);
+  	-webkit-transform: translateY(-400px);
+  	    -ms-transform: translateY(-400px);
+  	        transform: translateY(-400px);
 }
 
-#duck6:checked ~ .duckAnimation6 > .duck6:after,
-#duck7:checked ~ .duckAnimation7 > .duck7:after,
-#duck8:checked ~ .duckAnimation8 > .duck8:after,
-#duck9:checked ~ .duckAnimation9 > .duck9:after,
-#duck10:checked ~ .duckAnimation10 > .duck10:after {
+#duck6:checked ~ .duckAnimation6 > .duck6 + label:after,
+#duck7:checked ~ .duckAnimation7 > .duck7 + label:after,
+#duck8:checked ~ .duckAnimation8 > .duck8 + label:after,
+#duck9:checked ~ .duckAnimation9 > .duck9 + label:after,
+#duck10:checked ~ .duckAnimation10 > .duck10 + label:after {
 	content: "+50";
   	position: fixed;
   	opacity: 1;
-  	transform: translateY(-400px);
+  	-webkit-transform: translateY(-400px);
+  	    -ms-transform: translateY(-400px);
+  	        transform: translateY(-400px);
 }
 
-#duck11:checked ~ .duckAnimation11 > .duck11:after,
-#duck12:checked ~ .duckAnimation12 > .duck12:after,
-#duck13:checked ~ .duckAnimation13 > .duck13:after,
-#duck14:checked ~ .duckAnimation14 > .duck14:after,
-#duck15:checked ~ .duckAnimation15 > .duck15:after {
+#duck11:checked ~ .duckAnimation11 > .duck11 + label:after,
+#duck12:checked ~ .duckAnimation12 > .duck12 + label:after,
+#duck13:checked ~ .duckAnimation13 > .duck13 + label:after,
+#duck14:checked ~ .duckAnimation14 > .duck14 + label:after,
+#duck15:checked ~ .duckAnimation15 > .duck15 + label:after {
   	content: "-5";
   	position: fixed;
   	opacity: 1;
-  	transform: translateY(-400px);
+  	-webkit-transform: translateY(-400px);
+  	    -ms-transform: translateY(-400px);
+  	        transform: translateY(-400px);
 }
 
 .duckAnimation1,
@@ -578,127 +771,210 @@ input {
 .duckAnimation14,
 .duckAnimation15 {
 	position: absolute;
-	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg);
+	        transform: rotateY(180deg);
     right: -100px;
+    z-index: 15;
 }
 
-.duckAnimation1 {
-    animation: duck1LeftFly 16s linear 6s infinite;
+.duckAnimation1 { -webkit-animation: duck1LeftFly 16s linear 6s infinite; animation: duck1LeftFly 16s linear 6s infinite; }
+.duckAnimation2 { -webkit-animation: duck2LeftFly 17s linear 7s infinite; animation: duck2LeftFly 17s linear 7s infinite; }
+.duckAnimation3 { -webkit-animation: duck3LeftFly 18s linear 8s infinite; animation: duck3LeftFly 18s linear 8s infinite; }
+.duckAnimation4 { -webkit-animation: duck4LeftFly 19s linear 9s infinite; animation: duck4LeftFly 19s linear 9s infinite; }
+.duckAnimation5 { -webkit-animation: duck5LeftFly 20s linear 10s infinite; animation: duck5LeftFly 20s linear 10s infinite; }
+.duckAnimation6 { -webkit-animation: duck6RightFly 21s linear 10s infinite; animation: duck6RightFly 21s linear 10s infinite; }
+.duckAnimation7 { -webkit-animation: duck7RightFly 22s linear 15s infinite; animation: duck7RightFly 22s linear 15s infinite; }
+.duckAnimation8 { -webkit-animation: duck8RightFly 23s linear 8s infinite; animation: duck8RightFly 23s linear 8s infinite; }
+.duckAnimation9 { -webkit-animation: duck9RightFly 24s linear 11s infinite; animation: duck9RightFly 24s linear 11s infinite; }
+.duckAnimation10 { -webkit-animation: duck10RightFly 25s linear 7s infinite; animation: duck10RightFly 25s linear 7s infinite; }
+.duckAnimation11 { -webkit-animation: duck11LeftFly 26s linear 6.5s infinite; animation: duck11LeftFly 26s linear 6.5s infinite; }
+.duckAnimation12 { -webkit-animation: duck12LeftFly 30s linear 12s infinite; animation: duck12LeftFly 30s linear 12s infinite; }
+.duckAnimation13 { -webkit-animation: duck13LeftFly 35s linear 7.5s infinite; animation: duck13LeftFly 35s linear 7.5s infinite; }
+.duckAnimation14 { -webkit-animation: duck14RightFly 28s linear 9.4s infinite; animation: duck14RightFly 28s linear 9.4s infinite; }
+.duckAnimation15 { -webkit-animation: duck15RightFly 27s linear 11.2s infinite; animation: duck15RightFly 27s linear 11.2s infinite; }
+
+#duck1:checked ~ .duckAnimation1 > .duck1 + label,
+#duck2:checked ~ .duckAnimation2 > .duck2 + label,
+#duck3:checked ~ .duckAnimation3 > .duck3 + label,
+#duck4:checked ~ .duckAnimation4 > .duck4 + label,
+#duck5:checked ~ .duckAnimation5 > .duck5 + label {
+	-webkit-animation: duckDie 8s linear forwards;
+	        animation: duckDie 8s linear forwards;
+    background-position: 0px -460px;
 }
 
-.duckAnimation2 {
-    animation: duck2LeftFly 17s linear 7s infinite;
-}
-
-.duckAnimation3 {
-    animation: duck3LeftFly 18s linear 8s infinite;
-}
-
-.duckAnimation4 {
-    animation: duck4LeftFly 19s linear 9s infinite;
-}
-
-.duckAnimation5 {
-    animation: duck5LeftFly 20s linear 10s infinite;
-}
-
-.duckAnimation6 {
-    animation: duck6RightFly 21s linear 10s infinite;
-}
-
-.duckAnimation7 {
-    animation: duck7RightFly 22s linear 15s infinite;
-}
-
-.duckAnimation8 {
-    animation: duck8RightFly 23s linear 8s infinite;
-}
-
-.duckAnimation9 {
-    animation: duck9RightFly 24s linear 11s infinite;
-}
-
-.duckAnimation10 {
-    animation: duck10RightFly 25s linear 7s infinite;
-}
-
-.duckAnimation11 {
-	animation: duck11LeftFly 26s linear 6.5s infinite;
-}
-
-.duckAnimation12 {
-	animation: duck12LeftFly 10s linear 12s infinite;
-}
-
-.duckAnimation13 {
-	animation: duck13LeftFly 10s linear 7.5s infinite;
-}
-
-.duckAnimation14 {
-	animation: duck14RightFly 10s linear 9.4s infinite;
-}
-
-.duckAnimation15 {
-	animation: duck15RightFly 10s linear 11.2s infinite;
-}
-
-#duck1:checked ~ .duckAnimation1 > .duck1,
-#duck2:checked ~ .duckAnimation2 > .duck2,
-#duck3:checked ~ .duckAnimation3 > .duck3,
-#duck4:checked ~ .duckAnimation4 > .duck4,
-#duck5:checked ~ .duckAnimation5 > .duck5 {
-	animation: duckDie 10s linear forwards;
-    background-position: -65px -460px;
-}
-
-#duck6:checked ~ .duckAnimation6 > .duck6,
-#duck7:checked ~ .duckAnimation7 > .duck7,
-#duck8:checked ~ .duckAnimation8 > .duck8,
-#duck9:checked ~ .duckAnimation9 > .duck9,
-#duck10:checked ~ .duckAnimation10 > .duck10 {
-	animation: duckDie 10s linear forwards;
+#duck6:checked ~ .duckAnimation6 > .duck6 + label,
+#duck7:checked ~ .duckAnimation7 > .duck7 + label,
+#duck8:checked ~ .duckAnimation8 > .duck8 + label,
+#duck9:checked ~ .duckAnimation9 > .duck9 + label,
+#duck10:checked ~ .duckAnimation10 > .duck10 + label {
+	-webkit-animation: duckDie 8s linear forwards;
+	        animation: duckDie 8s linear forwards;
     background-position: -520px -460px;
 }
 
-#duck11:checked ~ .duckAnimation11 > .duck11,
-#duck12:checked ~ .duckAnimation12 > .duck12,
-#duck13:checked ~ .duckAnimation13 > .duck13,
-#duck14:checked ~ .duckAnimation14 > .duck14,
-#duck15:checked ~ .duckAnimation15 > .duck15 {
-	animation: duckDie 10s linear forwards;
-	background-position: -340px -460px;
+#duck11:checked ~ .duckAnimation11 > .duck11 + label,
+#duck12:checked ~ .duckAnimation12 > .duck12 + label,
+#duck13:checked ~ .duckAnimation13 > .duck13 + label,
+#duck14:checked ~ .duckAnimation14 > .duck14 + label,
+#duck15:checked ~ .duckAnimation15 > .duck15 + label {
+	-webkit-animation: duckDie 8s linear forwards;
+	        animation: duckDie 8s linear forwards;
+	background-position: -260px -460px;
 }
 
-input:checked+.duckAnimation1,
-input:checked+.duckAnimation2,
-input:checked+.duckAnimation3,
-input:checked+.duckAnimation4,
-input:checked+.duckAnimation5 {
+@-webkit-keyframes dogDuck {
+	0% { bottom: -100px; }
+	50% { bottom: 110px; }
+	100% { bottom: -100px; }
+}
+
+@keyframes dogDuck {
+	0% { bottom: -100px; }
+	50% { bottom: 110px; }
+	100% { bottom: -100px; }
+}
+
+.dogDuck {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 100px;
+	height: 100px;
+	background: url('img/sprite.png') no-repeat;
+	background-position: -660px 0px;
+}
+
+input:checked + div + .dogDuck {
+	-webkit-animation: dogDuck 2s linear 1s;
+	        animation: dogDuck 2s linear 1s;
+}
+
+input:checked + .duckAnimation1,
+input:checked + .duckAnimation2,
+input:checked + .duckAnimation3,
+input:checked + .duckAnimation4,
+input:checked + .duckAnimation5 {
   	counter-increment: score +10;
 }
 
-input:checked+.duckAnimation6,
-input:checked+.duckAnimation7,
-input:checked+.duckAnimation8,
-input:checked+.duckAnimation9,
-input:checked+.duckAnimation10 {
+input:checked + .duckAnimation6,
+input:checked + .duckAnimation7,
+input:checked + .duckAnimation8,
+input:checked + .duckAnimation9,
+input:checked + .duckAnimation10 {
 	counter-increment: score +50;
 }
 
-input:checked+.duckAnimation11,
-input:checked+.duckAnimation12,
-input:checked+.duckAnimation13,
-input:checked+.duckAnimation14,
-input:checked+.duckAnimation15 {
+input:checked + .duckAnimation11,
+input:checked + .duckAnimation12,
+input:checked + .duckAnimation13,
+input:checked + .duckAnimation14,
+input:checked + .duckAnimation15 {
 	counter-increment: score -5;
 }
 
-.score {
-	width: 100vw;
+#duck1:checked + div + div + div ~ #duck2:checked + div + div + div ~
+#duck3:checked + div + div + div ~ #duck4:checked + div + div + div ~
+#duck5:checked + div + div + div ~ #duck6:checked + div + div + div ~
+#duck7:checked + div + div + div ~ #duck8:checked + div + div + div ~
+#duck9:checked + div + div + div ~ #duck10:checked + div + div + div {
+	opacity: 0.6;
+	cursor: default;
+	z-index: 55;
+}
+
+#duck11:checked + div + div + div ~ #duck12:checked + div + div + div ~
+#duck13:checked + div + div + div ~ #duck14:checked + div + div + div ~
+#duck15:checked + div + div + div {
+	opacity: 0.6;
+	cursor: default;
+	z-index: 55;
+}
+
+.fin {
+	width: 100%;
+	height: 100vh;
+	background: black;
+	opacity: 0;
+	position: absolute;
+	-webkit-transition: 1s;
+	-o-transition: 1s;
+	transition: 1s;
+}
+
+@-webkit-keyframes fin {
+	15% { -webkit-transform: translateX(10px); transform: translateX(10px); }
+    30% { -webkit-transform: translateX(-10px); transform: translateX(-10px); }
+    50% { -webkit-transform: translateX(6px); transform: translateX(6px); }
+    65% { -webkit-transform: translateX(-6px); transform: translateX(-6px); }
+    80% { -webkit-transform: translateX(4px); transform: translateX(4px); }
+    100% { -webkit-transform: translateX(0); transform: translateX(0); }
+}
+
+@keyframes fin {
+	15% { -webkit-transform: translateX(10px); transform: translateX(10px); }
+    30% { -webkit-transform: translateX(-10px); transform: translateX(-10px); }
+    50% { -webkit-transform: translateX(6px); transform: translateX(6px); }
+    65% { -webkit-transform: translateX(-6px); transform: translateX(-6px); }
+    80% { -webkit-transform: translateX(4px); transform: translateX(4px); }
+    100% { -webkit-transform: translateX(0); transform: translateX(0); }
+}
+
+.winner,
+.lost {
+	width: 50%;
+	height: 20vh;
 	position: absolute;
 	top: 0;
 	left: 0;
-	font-size: 40px;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	border-radius: 25px;
+	text-align: center;
+	-webkit-animation: fin 1s infinite;
+	        animation: fin 1s infinite;
+}
+
+.winner:after {
+	content: "winner winner\0a chicken dinner!";
+	white-space: pre;
+	font-size: 5em;
+	font-family: cursive;
+	font-weight: bolder;
+	text-transform: uppercase;
+	color: royalblue;
+	text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+}
+
+.lost:before {
+	content: "you lost \0a";
+	white-space: pre;
+	font-size: 5em;
+	font-family: cursive;
+	font-weight: bolder;
+	text-transform: uppercase;
+	color: orangered;
+	text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+}
+
+.lost:after {
+	content: "don't touch the black ducks";
+	font-size: 3em;
+	font-family: cursive;
+	font-weight: bolder;
+	text-transform: uppercase;
+	color: papayawhip;
+	text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+}
+
+.score {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 3em;
 	text-align: center;
 	color: #6495ED;
 }
@@ -707,3 +983,379 @@ input:checked+.duckAnimation15 {
   	content: counter(score);
 }
 
+@media screen and (max-width: 320px) {
+	.wrapper {
+		width: 320px;
+		height: 195px;
+	}
+	.wrapper > span {
+		font-size: 2em;
+	}
+	a {
+		font-size: 1.3em;
+		margin-left: -20px;
+	}
+	#about,
+	#help {
+		width: 208px;
+		height: 192px;
+		margin-left: 110px;
+		margin-top: -178px;
+	}
+	.duckShow1:after {
+		content: "+10 points \0a for the blue duck";
+		white-space: pre;
+		font-size: .7em;
+		top: 24px;
+		right: 25px;
+	}
+	.duckShow1:before {
+		content: "";
+	}
+	.duckShow2:after {
+		content: "+50 points \0a for the red duck";
+		white-space: pre;
+		font-size: .7em;
+		top: 80px;
+		right: 30px;
+	}
+	.duckShow2:before {
+		content: "";
+	}
+	.duckShow3:after {
+		content: "-5 points \0a for the black duck";
+		white-space: pre;
+		font-size: .7em;
+		top: 137px;
+		right: 25px;
+	}
+	.duckShow3:before {
+		content: "";
+	}
+	.duckShow1,
+	.duckShow2,
+	.duckShow3 {
+		width: 0;
+		height: 0;
+	}
+	#about > span {
+		font-size: 1em;
+		width: 207px;
+		left: 110px;
+	}
+	#about > span > span:nth-of-type(1) {
+		font-size: .77em;
+		width: 207px;
+		top: 45px;
+		left: 0px;
+	}
+	#about > span > span:nth-of-type(2) {
+		font-size: .9em;
+		width: 207px;
+		top: 120px;
+	}
+	.winner:after {
+		content: "chicken dinner!";
+		font-size: 2em;
+		margin-left: -74px;
+	}
+	.winner:before {
+		content: "winner winner\0a";
+		font-size: 2em;
+		white-space: pre;
+		font-family: cursive;
+		font-weight: bolder;
+		text-transform: uppercase;
+		color: royalblue;
+		text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+		margin-left: -74px;
+	}
+	.lost:before {
+		font-size: 3em;
+		margin-left: -46px;
+	}
+	.lost:after {
+		content: "don't touch the black ducks";
+		font-size: 1em;
+	}
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+	.wrapper {
+		width: 320px;
+		height: 195px;
+	}
+	.wrapper > span {
+		font-size: 2em;
+	}
+	a {
+		font-size: 1.3em;
+		margin-left: -20px;
+	}
+	#about,
+	#help {
+		width: 208px;
+		height: 192px;
+		margin-left: 110px;
+		margin-top: -178px;
+	}
+	.duckShow1:after {
+		content: "+10 points \0a for the blue duck";
+		white-space: pre;
+		font-size: .7em;
+		top: 24px;
+		right: 25px;
+	}
+	.duckShow1:before {
+		content: "";
+	}
+	.duckShow2:after {
+		content: "+50 points \0a for the red duck";
+		white-space: pre;
+		font-size: .7em;
+		top: 80px;
+		right: 30px;
+	}
+	.duckShow2:before {
+		content: "";
+	}
+	.duckShow3:after {
+		content: "-5 points \0a for the black duck";
+		white-space: pre;
+		font-size: .7em;
+		top: 137px;
+		right: 25px;
+	}
+	.duckShow3:before {
+		content: "";
+	}
+	.duckShow1,
+	.duckShow2,
+	.duckShow3 {
+		width: 0;
+		height: 0;
+	}
+	#about > span {
+		font-size: 1em;
+		width: 207px;
+		left: 110px;
+	}
+	#about > span > span:nth-of-type(1) {
+		font-size: .77em;
+		width: 207px;
+		top: 45px;
+		left: 0px;
+	}
+	#about > span > span:nth-of-type(2) {
+		font-size: .9em;
+		width: 207px;
+		top: 120px;
+	}
+	.winner:after {
+		content: "chicken dinner!";
+		font-size: 2em;
+		margin-left: -45px;
+	}
+	.winner:before {
+		content: "winner winner\0a";
+		font-size: 2em;
+		white-space: pre;
+		font-family: cursive;
+		font-weight: bolder;
+		text-transform: uppercase;
+		color: royalblue;
+		text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+		margin-left: -45px;
+	}
+	.lost:before {
+		font-size: 3.5em;
+		margin-left: -24px;
+	}
+	.lost:after {
+		content: "don't touch the black ducks";
+		font-size: 1.5em;
+	}
+}
+
+@media screen and (min-width: 480px) and (max-width: 600px) {
+	.wrapper {
+		width: 450px;
+		height: 198px;
+	}
+	.wrapper > span {
+		font-size: 3.2em;
+	}
+	a {
+		font-size: 1.5em;
+		margin-left: -20px;
+	}
+	#about,
+	#help {
+		width: 320px;
+		height: 196px;
+		margin-left: 129px;
+		margin-top: -190px;
+	}
+	.duckShow1:after {
+		content: "+10 points for the blue duck";
+		font-size: .7em;
+		top: 28px;
+		right: 30px;
+	}
+	.duckShow1:before {
+		content: "";
+	}
+	.duckShow2:after {
+		content: "+50 points for the red duck";
+		font-size: .7em;
+		top: 87px;
+		right: 35px;
+	}
+	.duckShow2:before {
+		content: "";
+	}
+	.duckShow3:after {
+		content: "-5 points for the black duck";
+		font-size: .7em;
+		top: 147px;
+		right: 30px;
+	}
+	.duckShow3:before {
+		content: "";
+	}
+	.duckShow1,
+	.duckShow2,
+	.duckShow3 {
+		width: 0;
+		height: 0;
+	}
+	#about > span {
+		font-size: 1.1em;
+		width: 300px;
+		left: 140px;
+	}
+	#about > span > span:nth-of-type(1) {
+		font-size: .77em;
+		width: 300px;
+		top: 50px;
+	}
+	#about > span > span:nth-of-type(2) {
+		width: 300px;
+		top: 120px;
+	}
+	.winner:after {
+		content: "chicken dinner!";
+		font-size: 2.5em;
+		margin-left: -65px;
+	}
+	.winner:before {
+		content: "winner winner\0a";
+		font-size: 2.5em;
+		white-space: pre;
+		font-family: cursive;
+		font-weight: bolder;
+		text-transform: uppercase;
+		color: royalblue;
+		text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+		margin-left: -65px;
+	}
+	.lost:before {
+		font-size: 4em;
+		margin-left: -22px;
+	}
+	.lost:after {
+		content: "don't touch the black ducks";
+		font-size: 1.6em;
+	}
+}
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+	.wrapper {
+		width: 450px;
+		height: 198px;
+	}
+	.wrapper > span {
+		font-size: 3.2em;
+	}
+	a {
+		font-size: 1.5em;
+		margin-left: -20px;
+	}
+	#about,
+	#help {
+		width: 320px;
+		height: 196px;
+		margin-left: 129px;
+		margin-top: -190px;
+	}
+	.duckShow1:after {
+		content: "+10 points for the blue duck";
+		font-size: .7em;
+		top: 28px;
+		right: 30px;
+	}
+	.duckShow1:before {
+		content: "";
+	}
+	.duckShow2:after {
+		content: "+50 points for the red duck";
+		font-size: .7em;
+		top: 87px;
+		right: 35px;
+	}
+	.duckShow2:before {
+		content: "";
+	}
+	.duckShow3:after {
+		content: "-5 points for the black duck";
+		font-size: .7em;
+		top: 147px;
+		right: 30px;
+	}
+	.duckShow3:before {
+		content: "";
+	}
+	.duckShow1,
+	.duckShow2,
+	.duckShow3 {
+		width: 0;
+		height: 0;
+	}
+	#about > span {
+		font-size: 1.1em;
+		width: 300px;
+		left: 140px;
+	}
+	#about > span > span:nth-of-type(1) {
+		font-size: .77em;
+		width: 300px;
+		top: 50px;
+	}
+	#about > span > span:nth-of-type(2) {
+		width: 300px;
+		top: 120px;
+	}
+	.winner:after {
+		content: "chicken dinner!";
+		font-size: 3em;
+		margin-left: -50px;
+	}
+	.winner:before {
+		content: "winner winner\0a";
+		font-size: 3em;
+		white-space: pre;
+		font-family: cursive;
+		font-weight: bolder;
+		text-transform: uppercase;
+		color: royalblue;
+		text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+		margin-left: -50px;
+	}
+	.lost:before {
+		font-size: 4.5em;
+	}
+	.lost:after {
+		content: "don't touch the black ducks";
+		font-size: 1.8em;
+	}
+}
