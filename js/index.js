@@ -1,10 +1,3 @@
-function soundClickDuck() {
-  var audio = new Audio();
-  audio.src = 'audio/quac.mp3';
-  audio.volume = 1;
-  audio.autoplay = true;
-}
-
 function soundClickButton() {
   var audio = new Audio();
   audio.src = 'audio/knopka.mp3';
