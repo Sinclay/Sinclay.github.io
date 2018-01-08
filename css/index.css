@@ -618,6 +618,38 @@ a:hover {
     100% { background-position: 0px 0px }
 }
 
+@-webkit-keyframes bonusDuckPosition {
+    0% { background-position: 0px -300px }
+    33% { background-position: -80px -300px }
+    66% { background-position: -160px -300px }
+    100% { background-position: 0px 0px }
+}
+
+@keyframes bonusDuckPosition {
+    0% { background-position: 0px -300px }
+    33% { background-position: -80px -300px }
+    66% { background-position: -160px -300px }
+    100% { background-position: 0px 0px }
+}
+
+@-webkit-keyframes bonusDuckFlyPosition {
+    0% { bottom: -5vh; left: -15vw; }
+    20% { bottom: 10vh; left: 10vw; }
+    40% { bottom: 20vh; left: 20vw; }
+    60% { bottom: 50vh; left: 50vw; }
+    80% { bottom: 70vh; left: 70vw; }
+    100% { bottom: 100vh; left: 100vw; }
+}
+
+@keyframes bonusDuckFlyPosition {
+    0% { bottom: -5vh; left: -15vw; }
+    20% { bottom: 10vh; left: 10vw; }
+    40% { bottom: 20vh; left: 20vw; }
+    60% { bottom: 50vh; left: 50vw; }
+    80% { bottom: 70vh; left: 70vw; }
+    100% { bottom: 100vh; left: 100vw; }
+}
+
 @-webkit-keyframes duckDie {
     from { top: 0px; }
     to { top: 5555px; }
@@ -626,6 +658,82 @@ a:hover {
 @keyframes duckDie {
     from { top: 0px; }
     to { top: 5555px; }
+}
+
+@-webkit-keyframes bonus {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes bonus {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+#bonusDuck:checked + div + div + div {
+	-webkit-animation: bonus 2s linear;
+	        animation: bonus 2s linear;
+}
+
+.bonus {
+    width: 100%;
+	height: 100vh;
+	position: absolute;
+	opacity: 0;
+}
+
+.bonus:after {
+    content: "bonus";
+    color: orangered;
+    width: 20%;
+    height: 20%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	font-size: 7em;
+	font-family: cursive;
+	font-weight: bolder;
+	text-transform: uppercase;
+	text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+}
+
+#bonusDuck:checked + div + div + div ~ #duck1 + .duckAnimation1,
+#bonusDuck:checked + div + div + div ~ #duck2 + .duckAnimation2,
+#bonusDuck:checked + div + div + div ~ #duck3 + .duckAnimation3,
+#bonusDuck:checked + div + div + div ~ #duck4 + .duckAnimation4,
+#bonusDuck:checked + div + div + div ~ #duck5 + .duckAnimation5,
+#bonusDuck:checked + div + div + div ~ #duck11 + .duckAnimation11,
+#bonusDuck:checked + div + div + div ~ #duck12 + .duckAnimation12,
+#bonusDuck:checked + div + div + div ~ #duck13 + .duckAnimation13 {
+	-webkit-transform: scale(1.7);
+	    -ms-transform: scale(1.7);
+	        transform: scale(1.7);
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    position: absolute;
+    z-index: 15;
+}
+
+#bonusDuck:checked + div + div + div ~ #duck6 + .duckAnimation6,
+#bonusDuck:checked + div + div + div ~ #duck7 + .duckAnimation7,
+#bonusDuck:checked + div + div + div ~ #duck8 + .duckAnimation8,
+#bonusDuck:checked + div + div + div ~ #duck9 + .duckAnimation9,
+#bonusDuck:checked + div + div + div ~ #duck10 + .duckAnimation10,
+#bonusDuck:checked + div + div + div ~ #duck14 + .duckAnimation14,
+#bonusDuck:checked + div + div + div ~ #duck15 + .duckAnimation15 {
+	-webkit-transform: scale(1.7) rotateY(180deg);
+	        transform: scale(1.7) rotateY(180deg);
+    -webkit-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+    position: absolute;
+    z-index: 15;
 }
 
 input {
@@ -669,6 +777,11 @@ input ~ div > div + label {
 #duck15 ~ .duckAnimation15 > .duck15 + label {
 	-webkit-animation: blackDuckFlyPosition 220ms infinite step-end alternate;
 	        animation: blackDuckFlyPosition 220ms infinite step-end alternate;
+}
+
+#bonusDuck ~ .bonusDuckAnimation > .bonusDuck + label {
+    -webkit-animation: bonusDuckPosition 220ms infinite step-end alternate;
+            animation: bonusDuckPosition 220ms infinite step-end alternate;
 }
 
 input ~ div > div + label:after {
@@ -759,7 +872,8 @@ input ~ div > div + label:after {
 .duckAnimation5,
 .duckAnimation11,
 .duckAnimation12,
-.duckAnimation13 {
+.duckAnimation13,
+.bonusDuckAnimation {
 	position: absolute;
 }
 
@@ -792,12 +906,14 @@ input ~ div > div + label:after {
 .duckAnimation13 { -webkit-animation: duck13LeftFly 35s linear 7.5s infinite; animation: duck13LeftFly 35s linear 7.5s infinite; }
 .duckAnimation14 { -webkit-animation: duck14RightFly 28s linear 9.4s infinite; animation: duck14RightFly 28s linear 9.4s infinite; }
 .duckAnimation15 { -webkit-animation: duck15RightFly 27s linear 11.2s infinite; animation: duck15RightFly 27s linear 11.2s infinite; }
+.bonusDuckAnimation { -webkit-animation: bonusDuckFlyPosition 17s linear 7s infinite; animation: bonusDuckFlyPosition 17s linear 7s infinite; }
 
 #duck1:checked ~ .duckAnimation1 > .duck1 + label,
 #duck2:checked ~ .duckAnimation2 > .duck2 + label,
 #duck3:checked ~ .duckAnimation3 > .duck3 + label,
 #duck4:checked ~ .duckAnimation4 > .duck4 + label,
-#duck5:checked ~ .duckAnimation5 > .duck5 + label {
+#duck5:checked ~ .duckAnimation5 > .duck5 + label,
+#bonusDuck:checked ~ .bonusDuckAnimation > .bonusDuck + label {
 	-webkit-animation: duckDie 8s linear forwards;
 	        animation: duckDie 8s linear forwards;
     background-position: 0px -460px;
@@ -1077,6 +1193,12 @@ input:checked + .duckAnimation15 {
 		content: "don't touch the black ducks";
 		font-size: 1em;
 	}
+	.bonus {
+    	width: 50%;
+	}
+	.bonus:after {
+		font-size: 3em;
+	}
 }
 
 @media screen and (min-width: 320px) and (max-width: 480px) {
@@ -1166,13 +1288,21 @@ input:checked + .duckAnimation15 {
 		text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
 		margin-left: -45px;
 	}
+	.lost {
+		width: 94%;
+	}
 	.lost:before {
 		font-size: 3.5em;
-		margin-left: -24px;
 	}
 	.lost:after {
 		content: "don't touch the black ducks";
 		font-size: 1.5em;
+	}
+	.bonus {
+    	width: 50%;
+	}
+	.bonus:after {
+		font-size: 4em;
 	}
 }
 
@@ -1258,13 +1388,22 @@ input:checked + .duckAnimation15 {
 		text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
 		margin-left: -65px;
 	}
+	.lost {
+		width: 70%;
+	}
 	.lost:before {
 		font-size: 4em;
-		margin-left: -22px;
 	}
 	.lost:after {
-		content: "don't touch the black ducks";
+		content: "don't touch \0a the black ducks";
+		white-space: pre;
 		font-size: 1.6em;
+	}
+	.bonus {
+    	width: 50%;
+	}
+	.bonus:after {
+		font-size: 5em;
 	}
 }
 
@@ -1350,11 +1489,22 @@ input:checked + .duckAnimation15 {
 		text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
 		margin-left: -50px;
 	}
+	.lost {
+		width: 80%;
+	}
 	.lost:before {
 		font-size: 4.5em;
 	}
 	.lost:after {
 		content: "don't touch the black ducks";
+		white-space: pre;
 		font-size: 1.8em;
+		margin-left: -27px;
+	}
+	.bonus {
+    	width: 72%;
+	}
+	.bonus:after {
+		font-size: 5em;
 	}
 }
