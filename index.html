@@ -11,12 +11,15 @@
 
 <body>
     <div class="shadow" id="start"></div>
-    <div class="wrapper">
+    <div class="wrapper" id="again">
         <span>Duck Hunter</span>
         <ul>
             <li><a onClick="soundClickButton()" href="#start">start</a></li>
             <li><a onClick="soundClickButton()" href="#about">about</a></li>
             <li><a onClick="soundClickButton()" href="#help">help</a></li>
+            <ul class="description">
+                <li><a onClick="soundClickButton()" href="description.html" target="_blank">description</a></li>
+            </ul>
         </ul>
         <div id="about"><span><strong>shoot all the ducks in this area!!!</strong><br>
         <span>Okay, I'm joking, you need only red and blue ducks. If you shoot them all, you'll get a lot of points, and nothing more.</span><br><span>for more information press &#34;help&#34;</span>
@@ -40,6 +43,9 @@
         </div>
         <div class="dogDuck"></div>
         <div class="bonus"></div>
+        <div>
+            <a onClick="checkClick()" href="#again" class="button">back to menu</a>
+        </div>
         <input type="checkbox" id="duck1">
         <div class="duckAnimation1">
             <div class="duck1"></div>
@@ -47,7 +53,7 @@
         </div>
         <div class="dogDuck"></div>
         <div class="fin">
-            <div class="winner"></div>
+            <div class="winner"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
         </div>
         <input type="checkbox" id="duck2">
         <div class="duckAnimation2">
@@ -56,7 +62,7 @@
         </div>
         <div class="dogDuck"></div>
         <div class="fin">
-            <div class="winner"></div>
+            <div class="winner"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
         </div>
         <input type="checkbox" id="duck3">
         <div class="duckAnimation3">
@@ -65,7 +71,7 @@
         </div>
         <div class="dogDuck"></div>
         <div class="fin">
-            <div class="winner"></div>
+            <div class="winner"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
         </div>
         <input type="checkbox" id="duck4">
         <div class="duckAnimation4">
@@ -74,7 +80,7 @@
         </div>
         <div class="dogDuck"></div>
         <div class="fin">
-            <div class="winner"></div>
+            <div class="winner"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
         </div>
         <input type="checkbox" id="duck5">
         <div class="duckAnimation5">
@@ -83,7 +89,7 @@
         </div>
         <div class="dogDuck"></div>
         <div class="fin">
-            <div class="winner"></div>
+            <div class="winner"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
         </div>
         <input type="checkbox" id="duck6">
         <div class="duckAnimation6">
@@ -92,7 +98,7 @@
         </div>
         <div class="dogDuck"></div>
         <div class="fin">
-            <div class="winner"></div>
+            <div class="winner"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
         </div>
         <input type="checkbox" id="duck7">
         <div class="duckAnimation7">
@@ -101,7 +107,7 @@
         </div>
         <div class="dogDuck"></div>
         <div class="fin">
-            <div class="winner"></div>
+            <div class="winner"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
         </div>
         <input type="checkbox" id="duck8">
         <div class="duckAnimation8">
@@ -110,7 +116,7 @@
         </div>
         <div class="dogDuck"></div>
         <div class="fin">
-            <div class="winner"></div>
+            <div class="winner"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
         </div>
         <input type="checkbox" id="duck9">
         <div class="duckAnimation9">
@@ -119,7 +125,7 @@
         </div>
         <div class="dogDuck"></div>
         <div class="fin">
-            <div class="winner"></div>
+            <div class="winner"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
         </div>
         <input type="checkbox" id="duck10">
         <div class="duckAnimation10">
@@ -128,7 +134,7 @@
         </div>
         <div class="dogDuck"></div>
         <div class="fin">
-            <div class="winner"></div>
+            <div class="winner"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
         </div>
         <input type="checkbox" id="duck11">
         <div class="duckAnimation11">
@@ -137,7 +143,7 @@
         </div>
         <div class="dogDuck"></div>
         <div class="fin">
-            <div class="lost"></div>
+            <div class="lost"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
         </div>
         <input type="checkbox" id="duck12">
         <div class="duckAnimation12">
@@ -146,7 +152,7 @@
         </div>
         <div class="dogDuck"></div>
         <div class="fin">
-            <div class="lost"></div>
+            <div class="lost"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
         </div>
         <input type="checkbox" id="duck13">
         <div class="duckAnimation13">
@@ -155,7 +161,7 @@
         </div>
         <div class="dogDuck"></div>
         <div class="fin">
-            <div class="lost"></div>
+            <div class="lost"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
         </div>
         <input type="checkbox" id="duck14">
         <div class="duckAnimation14">
@@ -164,7 +170,7 @@
         </div>
         <div class="dogDuck"></div>
         <div class="fin">
-            <div class="lost"></div>
+            <div class="lost"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
         </div>
         <input type="checkbox" id="duck15">
         <div class="duckAnimation15">
@@ -173,7 +179,16 @@
         </div>
         <div class="dogDuck"></div>
         <div class="fin">
-            <div class="lost"></div>
+            <div class="lost"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
+        </div>
+        <input type="checkbox" id="duck16">
+        <div class="duckAnimation16">
+            <div class="duck16"></div>
+            <label for="duck16"></label>
+        </div>
+        <div class="dogDuck"></div>
+        <div class="fin">
+            <div class="lost"><a onClick="checkClick()" href="#again" class="button">back to menu</a></div>
         </div>
         <div class="score">Score&#58;&nbsp;</div>
     </div>
