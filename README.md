@@ -5,7 +5,7 @@
 5) Анимация (keyframes) была использована на собаке, утках, облаках и на финальных фразах в случае выигрыша либо проигрыша.
 
 К собаке было применено несколько анимаций:
-- eyframes dogMove + background-position - для анимирования походки собаки;
+- keyframes dogMove + background-position - для анимирования походки собаки;
 - keyframes dogRightMove: from { left: -500px; } to { left: 25vw; } - для движения собаки;
 - keyframes dogDuck: 0% { bottom: -100px; } 50% { bottom: 110px; } 100% { bottom: -100px; } - для появления собаки с уткой в лапе после каждого попадания в утку.
 
