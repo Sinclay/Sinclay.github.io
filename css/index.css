@@ -749,7 +749,7 @@ input {
 	display: none;
 }
 
-input ~ div > div + label {
+input ~ div > label {
     position: absolute;
     left: -100px;
     top: 0;
@@ -761,39 +761,53 @@ input ~ div > div + label {
 	cursor: url('img/smallaim.png'), auto;
 }
 
-#duck1 ~ .duckAnimation1 > .duck1 + label,
-#duck2 ~ .duckAnimation2 > .duck2 + label,
-#duck3 ~ .duckAnimation3 > .duck3 + label,
-#duck4 ~ .duckAnimation4 > .duck4 + label,
-#duck5 ~ .duckAnimation5 > .duck5 + label {
+input + div > label > div {
+	width: 75px;
+	height: 75px;
+	position: absolute;
+}
+
+input + div > label > div:hover {
+	top: -20px;
+	right: -20px;
+	bottom: -20px;
+	left: -20px;
+	padding: 20px;
+}
+
+#duck1 ~ .duckAnimation1 > label,
+#duck2 ~ .duckAnimation2 > label,
+#duck3 ~ .duckAnimation3 > label,
+#duck4 ~ .duckAnimation4 > label,
+#duck5 ~ .duckAnimation5 > label {
 	-webkit-animation: blueDuckFlyPosition 220ms infinite step-end alternate;
 	        animation: blueDuckFlyPosition 220ms infinite step-end alternate;
 }
 
-#duck6 ~ .duckAnimation6 > .duck6 + label,
-#duck7 ~ .duckAnimation7 > .duck7 + label,
-#duck8 ~ .duckAnimation8 > .duck8 + label,
-#duck9 ~ .duckAnimation9 > .duck9 + label,
-#duck10 ~ .duckAnimation10 > .duck10 + label {
+#duck6 ~ .duckAnimation6 > label,
+#duck7 ~ .duckAnimation7 > label,
+#duck8 ~ .duckAnimation8 > label,
+#duck9 ~ .duckAnimation9 > label,
+#duck10 ~ .duckAnimation10 > label {
 	-webkit-animation: redDuckFlyPosition 220ms infinite step-end alternate;
 	        animation: redDuckFlyPosition 220ms infinite step-end alternate;
 }
 
-#duck11 ~ .duckAnimation11 > .duck11 + label,
-#duck12 ~ .duckAnimation12 > .duck12 + label,
-#duck13 ~ .duckAnimation13 > .duck13 + label,
-#duck14 ~ .duckAnimation14 > .duck14 + label,
-#duck15 ~ .duckAnimation15 > .duck15 + label {
+#duck11 ~ .duckAnimation11 > label,
+#duck12 ~ .duckAnimation12 > label,
+#duck13 ~ .duckAnimation13 > label,
+#duck14 ~ .duckAnimation14 > label,
+#duck15 ~ .duckAnimation15 > label {
 	-webkit-animation: blackDuckFlyPosition 220ms infinite step-end alternate;
 	        animation: blackDuckFlyPosition 220ms infinite step-end alternate;
 }
 
-#bonusDuck ~ .bonusDuckAnimation > .bonusDuck + label {
+#bonusDuck ~ .bonusDuckAnimation > label {
     -webkit-animation: bonusDuckPosition 220ms infinite step-end alternate;
             animation: bonusDuckPosition 220ms infinite step-end alternate;
 }
 
-input ~ div > div + label:after {
+input ~ div > label:after {
     position: fixed;
   	font-size: 1.3em;
   	font-weight: bolder;
@@ -808,38 +822,38 @@ input ~ div > div + label:after {
   	        transform: rotate(180deg);
 }
 
-#duck1 ~ .duckAnimation1 > .duck1 + label:after,
-#duck2 ~ .duckAnimation2 > .duck2 + label:after,
-#duck3 ~ .duckAnimation3 > .duck3 + label:after,
-#duck4 ~ .duckAnimation4 > .duck4 + label:after,
-#duck5 ~ .duckAnimation5 > .duck5 + label:after {
+#duck1 ~ .duckAnimation1 > label:after,
+#duck2 ~ .duckAnimation2 > label:after,
+#duck3 ~ .duckAnimation3 > label:after,
+#duck4 ~ .duckAnimation4 > label:after,
+#duck5 ~ .duckAnimation5 > label:after {
   	content: "+10";
   	color: pink;
 }
 
-#duck6 ~ .duckAnimation6 > .duck6 + label:after,
-#duck7 ~ .duckAnimation7 > .duck7 + label:after,
-#duck8 ~ .duckAnimation8 > .duck8 + label:after,
-#duck9 ~ .duckAnimation9 > .duck9 + label:after,
-#duck10 ~ .duckAnimation10 > .duck10 + label:after {
+#duck6 ~ .duckAnimation6 > label:after,
+#duck7 ~ .duckAnimation7 > label:after,
+#duck8 ~ .duckAnimation8 > label:after,
+#duck9 ~ .duckAnimation9 > label:after,
+#duck10 ~ .duckAnimation10 > label:after {
 	content: "+50";
   	color: tomato;
 }
 
-#duck11 ~ .duckAnimation11 > .duck11 + label:after,
-#duck12 ~ .duckAnimation12 > .duck12 + label:after,
-#duck13 ~ .duckAnimation13 > .duck13 + label:after,
-#duck14 ~ .duckAnimation14 > .duck14 + label:after,
-#duck15 ~ .duckAnimation15 > .duck15 + label:after {
+#duck11 ~ .duckAnimation11 > label:after,
+#duck12 ~ .duckAnimation12 > label:after,
+#duck13 ~ .duckAnimation13 > label:after,
+#duck14 ~ .duckAnimation14 > label:after,
+#duck15 ~ .duckAnimation15 > label:after {
 	content: "-10";
   	color: black;
 }
 
-#duck1:checked ~ .duckAnimation1 > .duck1 + label:after,
-#duck2:checked ~ .duckAnimation2 > .duck2 + label:after,
-#duck3:checked ~ .duckAnimation3 > .duck3 + label:after,
-#duck4:checked ~ .duckAnimation4 > .duck4 + label:after,
-#duck5:checked ~ .duckAnimation5 > .duck5 + label:after {
+#duck1:checked ~ .duckAnimation1 > label:after,
+#duck2:checked ~ .duckAnimation2 > label:after,
+#duck3:checked ~ .duckAnimation3 > label:after,
+#duck4:checked ~ .duckAnimation4 > label:after,
+#duck5:checked ~ .duckAnimation5 > label:after {
   	content: "+10";
   	position: fixed;
   	opacity: 1;
@@ -848,11 +862,11 @@ input ~ div > div + label:after {
   	        transform: translateY(-400px);
 }
 
-#duck6:checked ~ .duckAnimation6 > .duck6 + label:after,
-#duck7:checked ~ .duckAnimation7 > .duck7 + label:after,
-#duck8:checked ~ .duckAnimation8 > .duck8 + label:after,
-#duck9:checked ~ .duckAnimation9 > .duck9 + label:after,
-#duck10:checked ~ .duckAnimation10 > .duck10 + label:after {
+#duck6:checked ~ .duckAnimation6 > label:after,
+#duck7:checked ~ .duckAnimation7 > label:after,
+#duck8:checked ~ .duckAnimation8 > label:after,
+#duck9:checked ~ .duckAnimation9 > label:after,
+#duck10:checked ~ .duckAnimation10 > label:after {
 	content: "+50";
   	position: fixed;
   	opacity: 1;
@@ -861,11 +875,11 @@ input ~ div > div + label:after {
   	        transform: translateY(-400px);
 }
 
-#duck11:checked ~ .duckAnimation11 > .duck11 + label:after,
-#duck12:checked ~ .duckAnimation12 > .duck12 + label:after,
-#duck13:checked ~ .duckAnimation13 > .duck13 + label:after,
-#duck14:checked ~ .duckAnimation14 > .duck14 + label:after,
-#duck15:checked ~ .duckAnimation15 > .duck15 + label:after {
+#duck11:checked ~ .duckAnimation11 > label:after,
+#duck12:checked ~ .duckAnimation12 > label:after,
+#duck13:checked ~ .duckAnimation13 > label:after,
+#duck14:checked ~ .duckAnimation14 > label:after,
+#duck15:checked ~ .duckAnimation15 > label:after {
   	content: "-5";
   	position: fixed;
   	opacity: 1;
@@ -917,32 +931,32 @@ input ~ div > div + label:after {
 .duckAnimation15 { -webkit-animation: duck15RightFly 27s linear 11.2s infinite; animation: duck15RightFly 27s linear 11.2s infinite; }
 .bonusDuckAnimation { -webkit-animation: bonusDuckFlyPosition 17s linear 7s infinite; animation: bonusDuckFlyPosition 17s linear 7s infinite; }
 
-#duck1:checked ~ .duckAnimation1 > .duck1 + label,
-#duck2:checked ~ .duckAnimation2 > .duck2 + label,
-#duck3:checked ~ .duckAnimation3 > .duck3 + label,
-#duck4:checked ~ .duckAnimation4 > .duck4 + label,
-#duck5:checked ~ .duckAnimation5 > .duck5 + label,
-#bonusDuck:checked ~ .bonusDuckAnimation > .bonusDuck + label {
+#duck1:checked ~ .duckAnimation1 > label,
+#duck2:checked ~ .duckAnimation2 > label,
+#duck3:checked ~ .duckAnimation3 > label,
+#duck4:checked ~ .duckAnimation4 > label,
+#duck5:checked ~ .duckAnimation5 > label,
+#bonusDuck:checked ~ .bonusDuckAnimation > label {
 	-webkit-animation: duckDie 8s linear forwards;
 	        animation: duckDie 8s linear forwards;
     background-position: 0px -460px;
 }
 
-#duck6:checked ~ .duckAnimation6 > .duck6 + label,
-#duck7:checked ~ .duckAnimation7 > .duck7 + label,
-#duck8:checked ~ .duckAnimation8 > .duck8 + label,
-#duck9:checked ~ .duckAnimation9 > .duck9 + label,
-#duck10:checked ~ .duckAnimation10 > .duck10 + label {
+#duck6:checked ~ .duckAnimation6 > label,
+#duck7:checked ~ .duckAnimation7 > label,
+#duck8:checked ~ .duckAnimation8 > label,
+#duck9:checked ~ .duckAnimation9 > label,
+#duck10:checked ~ .duckAnimation10 > label {
 	-webkit-animation: duckDie 8s linear forwards;
 	        animation: duckDie 8s linear forwards;
     background-position: -520px -460px;
 }
 
-#duck11:checked ~ .duckAnimation11 > .duck11 + label,
-#duck12:checked ~ .duckAnimation12 > .duck12 + label,
-#duck13:checked ~ .duckAnimation13 > .duck13 + label,
-#duck14:checked ~ .duckAnimation14 > .duck14 + label,
-#duck15:checked ~ .duckAnimation15 > .duck15 + label {
+#duck11:checked ~ .duckAnimation11 > label,
+#duck12:checked ~ .duckAnimation12 > label,
+#duck13:checked ~ .duckAnimation13 > label,
+#duck14:checked ~ .duckAnimation14 > label,
+#duck15:checked ~ .duckAnimation15 > label {
 	-webkit-animation: duckDie 8s linear forwards;
 	        animation: duckDie 8s linear forwards;
 	background-position: -260px -460px;
@@ -1024,9 +1038,7 @@ input:checked + .duckAnimation15 {
 input:checked + div + div + div > div > a {
 	display: block;
 }
-#duck15:checked + .duckAnimation15 + .dogDuck + .fin > .lost > a {
-	display: block;
-}
+
 .fin {
 	width: 100%;
 	height: 100vh;
